@@ -58,12 +58,15 @@ line Style */
 # Python Style
 ; Nasm Style
 % MATLAB, PDF 
-| Pipes
+| Pipes, . dots, ' single quotes, ` backticks, _ underscores
 ┌─┬┐╔═╦╗╓╥  Any box drawing 
 ╖╒╤╕│║├┼┤╠  character can also
 ╬╣╟╫╢╞╪╡└┴  be used as a comment.
 ┘╚╩╝╙╨╜╘╧╛  Perfect for diagrams!
 ```
+Since `#` is a comment, `xx` files can be executable by prepending them with a correct hashbang (assuming xx.py is in the path): for ex. `#!/usr/local/bin/xx.py`
+
+
 
 ## Roadmap
 
