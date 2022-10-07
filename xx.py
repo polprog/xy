@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import sys
 import hashlib
 import re
@@ -113,9 +114,9 @@ def filterMultLineComments(multilineComment, joinedLine, line):
 
 
 """
-inputs: 
+inputs:
   xxFile -- a list of lines from an xx file to parse
-outputs: 
+outputs:
   xxOut -- a binary buffer of compiled hex data from the xx file
 """
 def parseXX(xxFile):
@@ -162,5 +163,4 @@ if __name__ == '__main__':
         m = hashlib.sha256()
         m.update(out)
         shorthash = m.digest().hex()[0:8]
-        writeBin(out,shorthash,inFile)
-
+        writeBin(out,shorthash,os.path.basename(inFile))

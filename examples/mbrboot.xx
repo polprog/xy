@@ -8,17 +8,16 @@ eb3c90           ; Jump to bootcode
 0x00*25          ; bios param block
 0x00*26          ; extended bios param block
 /***********************
- * boot code goes here *     
+ * boot code goes here *
  ***********************/
 
 0x90 *447  ; NOP padding
            ;      _
            ;    _| |_
            ;    \   /
-	   ;     \ /
-	   ;      '
-0xcc       ;    INT 3
+           ;     \ /
+           ;      '
+    cc     ;    INT 3
 
 /* M A G I C K */
 55aa       ; <- This makez ur BIOS b007 da disk
-
