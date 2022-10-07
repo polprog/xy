@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import hashlib
 import re
@@ -61,6 +62,19 @@ def filterIgnored(inText):
     return inText
 
 """
+Filter the *operator, can occur only at EOL
+inputs:
+    inText: This contains a line from the data section of an xx file
+outputs:
+    inText: Unchanged or repeated line (if operator found)
+"""
+def filterRepetition(inText):
+    match = re.search("(.*)\*([0-9]+) *$", inText)
+    if match != None:
+        inText = match.group(1) * int(match.group(2))
+    return inText
+
+"""
 inputs:
     multilineComment: are we currently within a multi-line comment (initial value: False)
     joinedLine: incremental fragments around multi-line comment (initial value: "")
@@ -119,6 +133,7 @@ def parseXX(xxFile):
                 if comment in line:
                     line = line.split(comment)[0]
             line = parseString(line)
+            line = filterRepetition(line)
             line = filterIgnored(line)
             xxOut += bytes.fromhex(line)
         except Exception as e:
